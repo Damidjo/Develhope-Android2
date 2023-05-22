@@ -13,7 +13,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
-    private var currentValue: Int = 0
+    private var currentValue: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,17 +27,16 @@ class HomeFragment : Fragment() {
             if (inputValue != null) {
                 coroutineScope.launch {
                     delay(2000)
+                if (currentValue == null) {
                     currentValue = inputValue + 1
                     binding.textHome.text = currentValue.toString()
+                } else {
+                        currentValue = currentValue!! + 1
+                        binding.textHome.text = currentValue.toString()
+                    }
                 }
             }
         }
-
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        coroutineScope.cancel()
     }
 }

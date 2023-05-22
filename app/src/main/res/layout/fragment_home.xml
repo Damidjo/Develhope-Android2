@@ -27,14 +27,14 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Search here..."
+        android:hint="@string/write_a_number_here"
         android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRINT"
+        android:text="@string/press"
         android:layout_gravity="center"/>
 
 
